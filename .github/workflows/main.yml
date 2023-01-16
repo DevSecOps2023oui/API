@@ -1,12 +1,20 @@
-name: SSH Remote Commands
-# You may pin to the exact commit or the version.
-# uses: appleboy/ssh-action@d91a1af6f57cd4478ceee14d7705601dafabaa19
-uses: appleboy/ssh-action@v0.1.7
-  with:
-    host: ${{ secrets.SSH_HOST }}
-    # username: ${{ secrets.SSH_USERNAME }}
-    key: ${{ secrets.SSH_KEY }}
-    port: ${{ secrets.SSH_PORT }}
-    # execute commands
-    script: |
-      ls -al
+name: continuous integration
+on:
+  push:
+    branches:
+      - main
+jobs:
+  server_job:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: SSH Remote Commands
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets }}
+          # username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          # execute commands
+          script: |
+            whoami
+            ls -al
