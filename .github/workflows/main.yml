@@ -7,10 +7,13 @@ jobs:
   server_job:
     runs-on: ubuntu-22.04
     steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: latest
       - name: SSH Remote Commands
         uses: appleboy/ssh-action@v0.1.7
         with:
-          node-version: latest
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
