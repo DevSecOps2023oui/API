@@ -8,6 +8,17 @@ export class ControlerData{
     res.send(all);
   }
 
+  public async GetAllDay(req,res) {
+    const all = await prisma.sensors_data.findMany({
+      where: {
+        datetime: {
+          gte: new Date()
+        },
+      },
+    })
+    res.send(all);
+  }
+
   public async GetTemp(req,res) {
     const temp = await prisma.sensors_data.findMany({
       select: {

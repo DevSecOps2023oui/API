@@ -22,6 +22,7 @@ app.use((req, res, next) => {
 
 app.get("/", (req, res) => res.send("🏠"));
 app.get("/all", (req, res) => controllerData.GetAll(req, res));
+app.get("/allday", (req, res) => controllerData.GetAllDay(req, res));
 app.get("/temp", (req, res) => controllerData.GetTemp(req, res));
 app.get("/hydro", (req, res) => controllerData.GetHydro(req, res));
 app.get("/vent", (req, res) => controllerData.GetVent(req, res));
