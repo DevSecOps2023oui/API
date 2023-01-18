@@ -12,7 +12,7 @@ export class ControlerData{
     const all = await prisma.sensors_data.findMany({
       where: {
         datetime: {
-          gte: new Date(new Date().setHours(0, 0, 0, 0)),
+          gte: new Date(new Date().setHours(0, 0, 0)),
         },
       },
     })
