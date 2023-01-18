@@ -1,4 +1,4 @@
-# Node watcher
+# API REST
 
 This is a REST API that returns data from the database via different routes.
 
